@@ -1,6 +1,6 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS food_ordering_system;
-USE food_ordering_system;
+CREATE DATABASE IF NOT EXISTS canteen;
+USE canteen;
 
 -- Users table
 CREATE TABLE users (
@@ -22,6 +22,8 @@ CREATE TABLE food_items (
     price DECIMAL(10,2) NOT NULL,
     category ENUM('breakfast', 'lunch', 'snacks', 'beverages') NOT NULL,
     time_available VARCHAR(50) NOT NULL,
+    quantity_available INT DEFAULT 0,
+    last_stock_update TIMESTAMP NULL,
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
